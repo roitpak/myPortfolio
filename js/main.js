@@ -126,4 +126,36 @@
   $(document).ready(function () {
     updateExperienceYears();
   });
+
+  // Theme toggle
+  var themeToggleBtn = document.getElementById("themeToggle");
+  var themeIcon = themeToggleBtn.querySelector("i");
+  var currentTheme = localStorage.getItem("theme");
+
+  function setTheme(theme) {
+    if (theme === "dark") {
+      document.documentElement.setAttribute("data-theme", "dark");
+      themeIcon.className = "fas fa-sun";
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.removeAttribute("data-theme");
+      themeIcon.className = "fas fa-moon";
+      localStorage.setItem("theme", "light");
+    }
+  }
+
+  if (currentTheme) {
+    setTheme(currentTheme);
+  } else if (
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches
+  ) {
+    setTheme("dark");
+  }
+
+  themeToggleBtn.addEventListener("click", function () {
+    var isDark =
+      document.documentElement.getAttribute("data-theme") === "dark";
+    setTheme(isDark ? "light" : "dark");
+  });
 })(jQuery);
