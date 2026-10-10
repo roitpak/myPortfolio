@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Vlog - Rohit Pakhrin</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Travel vlog by Rohit Pakhrin - stories, trails and adventures."
+        name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS Libraries -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/vlogs.css" rel="stylesheet">
+
+    <!-- Apply saved theme before paint to avoid a flash -->
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem("theme");
+                if (!t) {
+                    t = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+                }
+                if (t === "dark") {
+                    document.documentElement.setAttribute("data-theme", "dark");
+                }
+            } catch (e) { }
+        })();
+    </script>
+</head>
+
+<body>
+    <!-- Nav Bar Start -->
+    <div class="navbar navbar-expand-lg bg-light navbar-light">
+        <div class="container-fluid">
+            <a href="index.html" class="navbar-brand">Rohit Pakhrin</a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav ml-auto">
+                    <a href="index.html" class="nav-item nav-link">Home</a>
+                    <a href="index.html#about" class="nav-item nav-link">About</a>
+                    <a href="index.html#service" class="nav-item nav-link">Service</a>
+                    <a href="index.html#experience" class="nav-item nav-link">Experience</a>
+                    <a href="index.html#contact" class="nav-item nav-link">Contact</a>
+                </div>
+                <div class="theme-toggle">
+                    <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Nav Bar End -->
+
+
+    <!-- Hero Start -->
+    <header class="vlog-hero" id="vlog-top">
+        <div class="vlog-hero-bg" aria-hidden="true"></div>
+        <div class="vlog-container vlog-hero-inner wow fadeInUp" data-wow-delay="0.1s">
+            <p class="vlog-kicker"><i class="fas fa-map-marker-alt"></i> Travel &middot; Stories &middot; Wanderlust</p>
+            <h1 class="vlog-title">Stories</h1>
+            <p class="vlog-intro" id="vlogIntro">
+                I'm Rohit &mdash; a developer also likes to explore places. Here I share the places I wander,
+                the people I meet, and the quiet moments in between. Hit play and come along.
+            </p>
+            <div class="vlog-actions">
+                <a class="btn" href="https://www.youtube.com/channel/UCsjnV66huSgX10mbQRw9nOQ?sub_confirmation=1"
+                    target="_blank" rel="noopener">
+                    <i class="fab fa-youtube"></i> Subscribe
+                </a>
+                <a class="btn vlog-btn-ghost" href="#latest">Watch Latest</a>
+            </div>
+        </div>
+    </header>
+    <!-- Hero End -->
+
+
+    <!-- Latest Video Start -->
+    <section class="vlog-section" id="latest">
+        <div class="vlog-container">
+            <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
+                <p>Fresh Off The Road</p>
+                <h2>Latest Video</h2>
+            </div>
+            <article class="vlog-feature wow fadeInUp" data-wow-delay="0.2s">
+                <div class="vlog-player" id="vlogPlayer">
+                    <button class="vlog-poster" id="vlogPoster" type="button" aria-label="Play latest video">
+                        <img id="vlogPosterImg" alt="" src="">
+                        <span class="vlog-play"><i class="fas fa-play"></i></span>
+                    </button>
+                </div>
+                <div class="vlog-feature-body">
+                    <span class="vlog-badge">Latest</span>
+                    <h3 id="vlogLatestTitle" class="vlog-latest-title">Loading&hellip;</h3>
+                    <p id="vlogLatestMeta" class="vlog-latest-meta"></p>
+                    <p id="vlogLatestDesc" class="vlog-latest-desc"></p>
+                    <a id="vlogLatestWatch" class="btn" href="https://www.youtube.com/channel/UCsjnV66huSgX10mbQRw9nOQ"
+                        target="_blank" rel="noopener">Watch on YouTube</a>
+                </div>
+            </article>
+        </div>
+    </section>
+    <!-- Latest Video End -->
+
+
+    <!-- Recent Videos Start -->
+    <section class="vlog-section vlog-section-alt" id="recent">
+        <div class="vlog-container">
+            <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
+                <p>Keep Exploring</p>
+                <h2>Recent Videos</h2>
+            </div>
+            <div class="vlog-grid" id="vlogGrid"></div>
+            <div class="vlog-all wow fadeInUp" data-wow-delay="0.1s">
+                <a class="btn" href="https://www.youtube.com/channel/UCsjnV66huSgX10mbQRw9nOQ" target="_blank"
+                    rel="noopener">View All On YouTube</a>
+            </div>
+        </div>
+    </section>
+    <!-- Recent Videos End -->
+
+
+    <!-- Footer Start -->
+    <div class="footer wow fadeIn" data-wow-delay="0.3s">
+        <div class="container-fluid">
+            <div class="container">
+                <div class="footer-info">
+                    <h2>Rohit Pakhrin</h2>
+                    <h3>Kathmandu, Nepal</h3>
+                    <div class="footer-menu">
+                        <p>roitpak@gmail.com</p>
+                    </div>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/rohit.pakhrin/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.youtube.com/channel/UCsjnV66huSgX10mbQRw9nOQ"><i
+                                class="fab fa-youtube"></i></a>
+                        <a href="https://www.instagram.com/roitpak/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/rohit-pakhrin-86242a171/"><i
+                                class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/roitpak"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to top button -->
+    <a href="#" class="btn back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+    <!-- Status toast -->
+    <div id="vlogStatus" class="vlog-status hidden"></div>
+
+    <!-- Pre Loader -->
+    <div id="loader" class="show">
+        <div class="loader"></div>
+    </div>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+
+    <!-- Vlog Javascript File -->
+    <script src="js/vlogs.js"></script>
+</body>
+
+</html>
