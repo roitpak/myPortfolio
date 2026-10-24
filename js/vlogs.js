@@ -52,79 +52,6 @@
     statusEl.classList.add("hidden");
   }
 
-  // ---- Theme (shares the "theme" key with the main site) ----
-  function initTheme() {
-    var btn = document.getElementById("themeToggle");
-    if (!btn) return;
-    var icon = btn.querySelector("i");
-
-    function apply(theme) {
-      if (theme === "dark") {
-        document.documentElement.setAttribute("data-theme", "dark");
-        if (icon) icon.className = "fas fa-sun";
-        localStorage.setItem("theme", "dark");
-      } else {
-        document.documentElement.removeAttribute("data-theme");
-        if (icon) icon.className = "fas fa-moon";
-        localStorage.setItem("theme", "light");
-      }
-    }
-
-    var stored = localStorage.getItem("theme");
-    if (stored) {
-      apply(stored);
-    } else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      apply("dark");
-    } else if (icon) {
-      icon.className = "fas fa-moon";
-    }
-
-    btn.addEventListener("click", function () {
-      var isDark = document.documentElement.getAttribute("data-theme") === "dark";
-      apply(isDark ? "light" : "dark");
-    });
-  }
-
-  // ---- Chrome (loader, nav, back-to-top, reveal) ----
-  function initChrome() {
-    var loader = document.getElementById("loader");
-    if (loader) {
-      setTimeout(function () {
-        loader.classList.remove("show");
-      }, 1);
-    }
-
-    if (window.WOW) new WOW().init();
-
-    var nav = document.querySelector(".navbar");
-    var backTop = document.querySelector(".back-to-top");
-    function onScroll() {
-      var y = window.pageYOffset || document.documentElement.scrollTop;
-      if (nav) nav.classList.toggle("nav-sticky", y > 0);
-      if (backTop) backTop.style.display = y > 200 ? "block" : "none";
-    }
-    window.addEventListener("scroll", onScroll);
-    onScroll();
-
-    if (backTop) {
-      backTop.addEventListener("click", function (e) {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      });
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(function (a) {
-      a.addEventListener("click", function (e) {
-        var id = a.getAttribute("href");
-        if (id.length < 2) return;
-        var target = document.querySelector(id);
-        if (!target) return;
-        e.preventDefault();
-        window.scrollTo({ top: target.offsetTop - 70, behavior: "smooth" });
-      });
-    });
-  }
-
   // ---- API ----
   async function callApi(path) {
     var res = await fetch(API_BASE + path + "&key=" + API_KEY);
@@ -205,7 +132,7 @@
         '<div class="vcard-media">' +
         '<img loading="lazy" src="' + thumbUrl(id, true) + '" alt="' + escapeHtml(title) + '" ' +
         "onerror=\"this.onerror=null;this.src='" + thumbUrl(id, false) + "'\">" +
-        '<span class="vcard-play"><i class="fas fa-play"></i></span>' +
+        '<span class="vcard-play"><i class="fa-solid fa-play"></i></span>' +
         "</div>" +
         '<div class="vcard-body">' +
         '<span class="vcard-title">' + escapeHtml(title) + "</span>" +
@@ -274,9 +201,6 @@
       showStatus("Couldn't load videos right now. Tap “View All” to watch on YouTube.");
     }
   }
-
-  initTheme();
-  initChrome();
 
   if (posterEl) {
     posterEl.addEventListener("click", embedFeatured);
