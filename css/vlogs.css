@@ -181,6 +181,8 @@
 
 .vlog-player {
     position: relative;
+    align-self: start;
+    width: 100%;
     aspect-ratio: 16 / 9;
     overflow: hidden;
     background: #05070a;
