@@ -67,8 +67,9 @@
 
     <!-- Vlog hero -->
     <header class="vlog-hero" id="home">
-        <canvas class="hero-canvas" id="glitchCanvas" aria-hidden="true"></canvas>
-        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="vlog-bg-layer" aria-hidden="true">
+            <div class="vlog-clouds-img" id="vlogClouds"></div>
+        </div>
 
         <div class="container vlog-hero-inner">
             <div class="vlog-hero-copy reveal">
@@ -82,14 +83,6 @@
                     <a class="btn btn-primary" href="https://www.youtube.com/channel/UCsjnV66huSgX10mbQRw9nOQ?sub_confirmation=1"
                         target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i> Subscribe</a>
                     <a class="btn btn-ghost" href="#latest"><i class="fa-solid fa-play"></i> Watch Latest</a>
-                </div>
-                <div class="hero-socials">
-                    <a href="https://www.youtube.com/channel/UCsjnV66huSgX10mbQRw9nOQ" target="_blank" rel="noopener"
-                        aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-                    <a href="https://www.instagram.com/roitpak/" target="_blank" rel="noopener"
-                        aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://www.facebook.com/rohit.pakhrin/" target="_blank" rel="noopener"
-                        aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
                 </div>
             </div>
 
@@ -193,6 +186,12 @@
                     aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
                 <a href="https://www.instagram.com/roitpak/" target="_blank" rel="noopener" aria-label="Instagram"><i
                         class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.facebook.com/rohit.pakhrin/" target="_blank" rel="noopener" aria-label="Facebook"><i
+                        class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.twitch.tv/pakhrinstoned" target="_blank" rel="noopener" aria-label="Twitch"><i
+                        class="fa-brands fa-twitch"></i></a>
+                <a href="https://x.com/roitpak" target="_blank" rel="noopener" aria-label="X"><i
+                        class="fa-brands fa-x-twitter"></i></a>
             </div>
             <p class="footer-copy">&copy; <span id="year"></span> Rohit Pakhrin. All rights reserved.</p>
         </div>
@@ -214,6 +213,34 @@
 
     <script src="js/portfolio.js"></script>
     <script src="js/vlogs.js"></script>
+    <script>
+    (function(){
+      var wrap = document.getElementById('vlogClouds');
+      if(!wrap) return;
+      var imgs = [
+        {src:'img/cloud1.png', w:64},
+        {src:'img/cloud2.png', w:94},
+        {src:'img/cloud3.png', w:95}
+      ];
+      var count = window.innerWidth < 640 ? 4 : 6;
+      for(var i=0;i<count;i++){
+        var m = imgs[Math.floor(Math.random()*imgs.length)];
+        var img = document.createElement('img');
+        img.className = 'cloud-img';
+        img.src = m.src;
+        img.alt = '';
+        img.loading = 'lazy';
+        img.style.width = m.w + 'px';
+        img.style.top = (6 + Math.random()*88) + '%';
+        img.style.animationDuration = (40 + Math.random()*80) + 's';
+        img.style.animationDelay = (-Math.random()*90) + 's';
+        if(Math.random() < 0.25){
+          img.style.opacity = (0.4 + Math.random()*0.3).toFixed(2);
+        }
+        wrap.appendChild(img);
+      }
+    })();
+    </script>
 </body>
 
 </html>

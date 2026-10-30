@@ -241,6 +241,7 @@ p {
     position: absolute;
     inset: 0;
     pointer-events: none;
+    z-index: 1;
     background:
         radial-gradient(520px 520px at 78% 42%, var(--primary-soft), transparent 70%),
         radial-gradient(420px 420px at 18% 70%, var(--accent-soft), transparent 70%);
@@ -1333,6 +1334,12 @@ p {
         animation-duration: .001ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: .001ms !important;
+    }
+
+    .vlog-clouds,
+    .hero-canvas {
+        display: none !important;
+        animation: none !important;
     }
 
     .reveal {
